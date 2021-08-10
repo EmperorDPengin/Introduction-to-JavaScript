@@ -20,7 +20,11 @@ Do the following:
    HINT: no function required
 */
 
+let votingAge = 18;
 
+if(votingAge >= 18){
+  console.log('true');
+}
 
 /*
 Task 1b - Values
@@ -33,7 +37,11 @@ Do the following:
    HINT: no function required
 */
 
+var variable1 = 5;
+var variable2 = 'text';
 
+variable1 = variable2;
+console.log(variable1);
 
 
 
@@ -48,7 +56,9 @@ Do the following:
    HINT: look up the Number method
 */
 
-
+let yearString = '1999'
+let yearNumber = Number(yearString);
+console.log(yearNumber);
 
 
 /*
@@ -60,9 +70,12 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a , b){
+  let result = a * b;
+  return result;
 }
+
+console.log(multiply(2,5));
 
 
 
@@ -76,10 +89,12 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  let result = age * 7;
+  return result;
 }
 
+console.log(dogYears(21));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -109,10 +124,42 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+  
+
+function hungryDog(weight, age){
+
+  // Adult Dog Food Percentages
+  const fivePercent_maxWeight = 5;
+  const fourPercent_minWeight = 6;
+  const fourPercent_maxWeight = 10;
+  const threePercent_minWeight = 11;
+  const threePercent_maxWeight = 15;
+  // Puppy Food Age Percentages 
+  const lowerAge_threshold = 4/12;
+  const middleAge_threshold = 7/12;
+
+  if(age >= 1){
+    if(weight <= fivePercent_maxWeight){
+      return (weight*0.05);
+    }else if(weight >= fourPercent_minWeight && weight <= fourPercent_maxWeight){
+      return (weight*0.04);
+    }else if(weight >= threePercent_minWeight && weight <=threePercent_maxWeight){
+      return (weight*0.03);
+    }else{
+      return (weight*0.02);
+    }
+  }else if(age < 1){
+    if(age <= lowerAge_threshold){
+      return (weight*0.1);
+    }else if(age >= lowerAge_threshold && weight <= middleAge_threshold){
+      return (weight*0.05);
+    }else{
+      return (weight*0.04);
+    }
+  }
 }
 
+console.log(hungryDog(4, 1));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -136,9 +183,44 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-  /*add your code here*/
+var computerChoice = (Math.floor(Math.random()*3));
+if(computerChoice == 0){
+  computerChoice = 'rock';
+}else if(computerChoice == 1){
+  computerChoice == 'paper';
+}else{
+  computerChoice == 'scissors';
 }
+
+function game(user, computer){
+  if(user == "rock"){
+    if(computer == 'rock'){
+      return "it's a tie";
+    }else if(computer == 'paper'){
+      return 'you lose!';
+    }else if(computer == 'scissors'){
+      return 'you win!';
+    }
+  }else if(user == "paper"){
+    if(computer == 'rock'){
+      return "you win!";
+    }else if(computer == 'paper'){
+      return "it's a tie";
+    }else if(computer == 'scissors'){
+      return "you lose!";
+    }
+  }else if(user == "scissors"){
+    if(computer == "rock"){
+      return "you lose!";
+    }else if(computer == "paper"){
+      return "you win!";
+    }else if(computer == "scissors"){
+      return "it's a tie";
+    }
+  }
+}
+
+console.log(game('paper',computerChoice));
 
 
 
@@ -153,11 +235,12 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers){
+  let miles = kilometers * 0.621371;
+  return miles;
 }
 
-
+console.log(miles(500));
 
 //Task 5b - Feet to CM
 /*
@@ -167,9 +250,12 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  let feet = cm / 30.48;
+  return feet;
 }
+
+console.log(feet(10));
 
 
 
@@ -183,10 +269,14 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(startNumber){
+  for(let i = startNumber; i > 0; i--){
+    let count = i;
+    return (count+" bottles of soda on the wall, "+count+" bottles of soda, take one down pass it around "+(count-1)+" bottles of soda on the wall");
+  }
 }
 
+console.log(annoyingSong(5));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -203,8 +293,24 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+  if(score < 90){
+    if(score < 80){
+      if(score < 70){
+        if(score < 60){
+          return 'you got an F';
+        }else{
+          return 'you got a D';
+        }
+      }else{
+        return "you got a C";
+      }
+    }else{
+      return "you got a B";
+    }
+  }else{
+    return "you got an A";
+  }
 }
 
 
@@ -222,10 +328,20 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(word) {
+  let str = word.toString().toLowerCase();
+  let vowels = ['a','e','i','o','u'];
+  let vowelCount = 0;
+
+  for(let letter of str){
+    if(vowels.includes(letter)){
+      vowelCount++;
+    }
+  }
+  return vowelCount;
 }
 
+console.log(vowelCounter('murcielago'));
 
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
@@ -244,5 +360,6 @@ module.exports = {
   miles,
   feet,
   annoyingSong,
-  grade
+  grade,
+  vowelCounter
 }

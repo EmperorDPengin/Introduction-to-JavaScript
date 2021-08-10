@@ -115,3 +115,19 @@ describe('gradeFunction', ()=>{
       expect(functions.grade(20)).toBe('you got an F');
   })
 });
+
+describe('vowelCounterFunction', ()=>{
+    it('Murcielago has 5', ()=>{
+        expect(functions.vowelCounter('Murcielago')).toBe(5);
+    })
+    it('College has 3', ()=>{
+        expect(functions.vowelCounter('CollEge')).toBe(3);
+    })
+    it('Agriculture has 5', ()=>{
+        expect(functions.vowelCounter('AgriCulTure')).toBe(5);
+    })
+    it('Lambda has 2', ()=>{
+        expect(functions.vowelCounter('Lambda')).toBe(2);
+    })
+});
+
